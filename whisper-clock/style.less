@@ -1,0 +1,51 @@
+html {
+  --width-var: 90vw;
+
+  @media (min-device-width: 600px) {
+    --width-var: 300px;
+  }
+}
+
+@keyframes animatedKing {
+  0% { background-position: 200% -50%; }
+  70% { background-position: 70% 8% }
+  100% { background-position: 70% 8% }
+}
+
+.clock {
+  width: var(--width-var);
+  margin: 0 auto;
+  background-image: url("ref/clock-placeholder.png");
+  background-size: var(--width-var);
+  .top {
+    height: calc(var(--width-var)*0.5);
+  }
+  .middle {
+    height: calc(var(--width-var)*0.8);
+
+    .frame {
+      position: relative;
+      height: 100%;
+      width: 80%;
+      margin: 0 auto;
+
+      .circle {
+        position: absolute;
+        top: calc(var(--width-var)*0.438);
+        left: calc(var(--width-var)*0.165);
+        width: calc(var(--width-var)*0.13);
+        height: calc(var(--width-var)*0.13);
+        background-image: url("ref/king.png");
+        background-size: calc(var(--width-var)*0.25);
+        background-position: 200% -50%;
+        background-repeat: no-repeat;
+        background-color: #000;
+        animation: animatedKing 7s linear infinite;
+        border-radius: 50%;
+      }
+    }
+  }
+  .bottom {
+    height: calc(var(--width-var)*0.5);
+  }
+}
