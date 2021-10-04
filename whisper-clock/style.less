@@ -12,6 +12,20 @@ html {
   100% { background-position: 70% 8% }
 }
 
+@keyframes secondHandAnimation {
+  from {
+    transform:
+      translateX(100px)
+      rotate(0deg);
+  }
+ 
+  to {
+    transform:
+      translateX(100px)
+      rotate(360deg);
+  }
+}
+
 .clock {
   width: var(--width-var);
   margin: 0 auto;
@@ -22,13 +36,20 @@ html {
   }
   .middle {
     height: calc(var(--width-var)*0.8);
+    position: relative;
     
     .second-hand {
-      margin-left: 50%;
-
-      width: 20%;
+      position: absolute;
+      top: 275px;
+      left: 227px;
+      width: 50px;
       height: 1px;
       background-color: red;
+      
+      animation: linear;
+      animation-duration: 60s;
+      animation-name: secondHandAnimation;
+      animation-iteration-count: infinite;
     }
 
     .frame {
